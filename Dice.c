@@ -5,41 +5,44 @@
 void roll_dice();
 void pattern(int);
 
+//Driver Function
 int main(){
 	char select;
 	
 	printf("*****    ROLL A DICE    ***** \n\n");
 	do{
 		printf("Press SPACE key to roll a dice or Q to exit \n");
-		select=getch();
+		select=getch();							//taking input from keyboard
 		
-		system("cls");
+		system("cls");							//clearing console screen
 		
-		if(select=='Q' || select=='q')
+		if(select=='Q' || select=='q')					//quit the program if input is q
 			printf("Good Bye! \n");
 		else if(select==' '){
 			printf("Rolling... \n");
-			sleep(1);
+			sleep(1);						//adding delay
 			system("cls");
-			roll_dice();
+			roll_dice();						//function to roll the dice
 		}else
-			printf("Err! Invalid Input \n");
+			printf("Err! Invalid Input \n");			//invalid input
 	}while(select!='Q' && select!='q');
 	
 	return 0;
 }
 
+//Function ehich rolls the dice
 void roll_dice(){
 	int i;
 	srand(time(NULL));
-	int num=(rand()%6)+1;
+	int num=(rand()%6)+1;							//getting random number in the range 1-6
 	
 	printf("\n");
 	pattern(num);
-	printf("\n\n%d \n",num);
+	printf("\n\n%d \n",num);						//printing number
 }
 
-void pattern(int x){
+//Function to print the dice face
+void pattern(int x){	
 	int i,j;
 	
 	if(x==1){
